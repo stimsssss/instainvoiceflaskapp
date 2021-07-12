@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect
+"""from flask import Flask, request, redirect
 #from twilio import twiml
 from twilio.twiml.messaging_response import MessagingResponse
 
@@ -17,17 +17,20 @@ def sms():
     resp.message('Hello %s, you said: %s' % (number,message_body))
     return str(resp)
 
-"""
-def sms_reply():
-    #Respond to incoming calls with a simple text message.
-    # Start our TwiML response
-    resp = MessagingResponse()
-
-    # Add a message
-    resp.message("The Robots are coming! Head for the hills!")
-
-    return str(resp)
-"""
-
 if __name__ == "__main__":
     app.run(debug=True)
+    
+"""
+
+from flask import Flask
+
+application = Flask(__name__)
+
+application.debug = True
+
+@application.route('/', methods=['GET'])
+def hello():
+    return '<p>Hellow world</p>'
+
+if __name__ == "__main__":
+    application.run()
